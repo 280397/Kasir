@@ -2,7 +2,7 @@
 function check_login()
 {
     $ci = &get_instance();
-    $user_session = $ci->session->userdata('name');
+    $user_session = $ci->session->userdata('id');
     if ($user_session) {
         redirect('Dashboard');
     }
@@ -10,7 +10,7 @@ function check_login()
 function check_not_login()
 {
     $ci = &get_instance();
-    $user_session = $ci->session->userdata('name');
+    $user_session = $ci->session->userdata('id');
     if (!$user_session) {
         redirect('Auth');
     }
@@ -18,9 +18,9 @@ function check_not_login()
 
 function check_admin()
 {
-    $ci = &get_instance();
-    $user_session = $ci->session->userdata('level');
-    if ($user_session != 1) {
-        $ci->template->load('template', 'error');
+    $ci =   &get_instance();
+    $ci->load->library('fungsi');
+    if ($ci->fungsi->user_login()->level != 1) {
+        redirect('Dashboard');
     }
 }

@@ -6,8 +6,8 @@ class User extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        check_not_login();
         check_admin();
+        check_not_login();
         $this->load->model('User_m');
         $this->load->library('form_validation');
     }
@@ -94,7 +94,7 @@ class User extends CI_Controller
     public function delete($id = null)
     {
         $this->User_m->delete($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data dihapus!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data deleted!</div>');
         redirect('User');
     }
 }

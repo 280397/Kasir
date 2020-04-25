@@ -36,7 +36,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?= base_url() ?>assets/imguser/Ali2.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs"> <?= $this->session->userdata('name') ?></span>
+                                <span class="hidden-xs"> <?= $this->fungsi->user_login()->name ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -44,7 +44,7 @@
                                     <img src="<?= base_url() ?>assets/imguser/Ali2.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                        <?= $this->session->userdata('name') ?>
+                                        <?= $this->fungsi->user_login()->name ?>
                                         <small>Member since Nov. 2012</small>
                                     </p>
                                 </li>
